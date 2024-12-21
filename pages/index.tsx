@@ -13,8 +13,20 @@ const Home: NextPage = () => {
   const video_links = [
     [
       [
-        "24.12.21(토)",
-        "https://www.youtube.com",
+        "대본 리딩",
+        "https://www.youtube.com/playlist?list=PLCF1IDqY6pqCkVgXx9HLxU2qzN4mU8PHO",
+      ],
+      [
+        "동선",
+        "https://www.youtube.com/playlist?list=PLCF1IDqY6pqAIy5Fq5PgtJdsmFjHd7pi4",
+      ],
+      [
+        "A팀 런",
+        "https://www.youtube.com/playlist?list=PLCF1IDqY6pqCeAGvOOJk5QKq5pBu_cGIW",
+      ],
+      [
+        "B팀 런",
+        "https://www.youtube.com/playlist?list=PLCF1IDqY6pqA2hRWXblL1OxzrqV2Wn9Vu",
       ],
     ],
   ];
