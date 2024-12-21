@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .base-bg{
+        @apply bg-blue-200 py-4 rounded-md
+    }
+    .title-text{
+        @apply text-[22px] flex justify-center py-1 mx-4 mb-4 border-y-2 border-y-[#3E71B1] 
+    }
+
+}
