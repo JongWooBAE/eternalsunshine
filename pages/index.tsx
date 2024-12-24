@@ -112,7 +112,7 @@ const Home: NextPage = () => {
           </a>
         </div>
       </div>
-      {/* <div className="grid gap-4 mx-10">
+      <div className="grid gap-4 mx-10">
         <h3 className="text-xl">연습 영상</h3>
 
         <div className="grid gap-1">
@@ -124,8 +124,8 @@ const Home: NextPage = () => {
             ))}
           </span>
         </div>
-      </div> */}
-      {/* <div className="grid mx-10">
+      </div>
+      <div className="grid mx-10">
         <h3 className="text-xl pb-4">홈 화면에 바로가기 링크 추가 방법</h3>
         {homeLinks.map((homeLink, num) => (
           <div key={num} className="w-[100vw] pb-4">
@@ -135,7 +135,7 @@ const Home: NextPage = () => {
             {activeDiv === num && <div className="mx-4">{homeLink[1]}</div>}
           </div>
         ))}
-      </div> */}
+      </div>
       <div className="grid gap-4 mx-10">
         <h3 className="text-xl">무대 스케치</h3>
         <Image
