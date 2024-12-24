@@ -1,22 +1,13 @@
-// pages/api/cafe24/customer
-import NextCors from "nextjs-cors";
-import { NextApiRequest, NextApiResponse } from "next";
-export default async function handle(
+// pages/api/hello.ts
+import type { NextApiRequest, NextApiResponse } from 'next';
+
+type Data = {
+  name: string;
+};
+
+export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse<any>
+  res: NextApiResponse<Data>
 ) {
-  await NextCors(req, res, {
-    // Options
-    methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
-    origin: "*",
-    optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-  });
-
-
-  const data = req.body
-  console.log(data.inputs)
-
-
-
-  res.send(200)
+  res.status(200).json({ name: 'John Doe' });
 }
