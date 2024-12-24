@@ -118,7 +118,7 @@ const Home: NextPage = () => {
         <div className="grid gap-1">
           <span className="mx-4 flex flex-col gap-2 text-center">
             {video_links.map((video_link, j) => (
-              <a href={video_link[1]} className="border py-2" key={j}>
+              <a href={video_link[1]} className="border py-2" key={video_link[0]}>
                 {video_link[0]}
               </a>
             ))}
