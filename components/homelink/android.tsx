@@ -34,7 +34,7 @@ const ANDROID = () => {
         onTouchMove={handleTouchMove}
       >
         {images.map((image, index) => (
-          <div key={index} className="min-w-[300px] border">
+          <div key={image.url} className="min-w-[300px] border">
             <img
               src={image.url}
               alt={`Slide ${index + 1}`}
