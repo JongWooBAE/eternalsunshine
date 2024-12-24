@@ -1,3 +1,5 @@
+import ANDROID from "@components/homelink/android";
+import IOS from "@components/homelink/ios";
 import type { NextPage } from "next";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -34,6 +36,18 @@ const Home: NextPage = () => {
       console.error("텍스트 복사 실패:", error);
     }
   };
+
+  const [activeDiv, setActiveDiv] = useState<number | null>(null);
+
+  const toggleDiv = (index: number) => {
+    setActiveDiv(activeDiv === index ? null : index);
+  };
+
+  const homeLinks = [
+    ["아이폰(사파리)", <IOS />],
+    ["안드로이드(삼성인터넷)", <ANDROID />],
+  ];
+
   return (
     <div className="grid gap-10 py-10">
       <div className="grid gap-4 mx-10">
@@ -98,64 +112,6 @@ const Home: NextPage = () => {
           </a>
         </div>
       </div>
-
-      {/* <div className="grid gap-4 mx-10">
-        <h3 className="text-xl">연습 일지</h3>
-        {notes.map((note, i) => (
-          <div className="grid mx-4 gap-1" key={i}>
-            <span
-              onClick={() => changeSO(i, "note")}
-              className="flex gap-1 items-center"
-            >
-              {noteOpen[i] ? (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="w-4 h-4"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                  />
-                </svg>
-              ) : (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="w-4 h-4"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                  />
-                </svg>
-              )}
-
-              <span>{note}</span>
-            </span>
-            {noteOpen[i] ? (
-              <span className="mx-4 flex flex-col gap-2 text-center">
-                {note_links[i].map((note_link, j) => (
-                  <a href={note_link[1]} className="border py-2" key={j}>
-                    {note_link[0]}
-                  </a>
-                ))}
-              </span>
-            ) : (
-              ""
-            )}
-          </div>
-        ))}
-      </div> */}
-
       <div className="grid gap-4 mx-10">
         <h3 className="text-xl">연습 영상</h3>
 
@@ -168,6 +124,17 @@ const Home: NextPage = () => {
             ))}
           </span>
         </div>
+      </div>
+      <div className="grid mx-10">
+        <h3 className="text-xl pb-4">홈 화면에 바로가기 링크 추가 방법</h3>
+        {homeLinks.map((homeLink, num) => (
+          <div key={num} className="w-[100vw] pb-4">
+            <div className="ml-4" onClick={() => toggleDiv(num)}>
+              {homeLink[0]}
+            </div>
+            {activeDiv === num && <div className="mx-4">{homeLink[1]}</div>}
+          </div>
+        ))}
       </div>
       <div className="grid gap-4 mx-10">
         <h3 className="text-xl">무대 스케치</h3>
