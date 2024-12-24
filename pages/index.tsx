@@ -73,7 +73,7 @@ const Home: NextPage = () => {
       <div className="grid gap-4 mx-10">
         <h3 className="text-xl">연습실</h3>
         <div className="flex flex-col gap-2 mx-4">
-          <span>군자역 부근 '공간연습실'</span>
+          <span>군자역 부근 공간연습실</span>
           <span>서울 광진구 동일로 60길 54, 북해도 지하 1층</span>
           <span>입구 비밀번호 2535</span>
           <span>와이파이: iptime5G / PW : 19930212</span>
