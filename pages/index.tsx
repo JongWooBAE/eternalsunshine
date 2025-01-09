@@ -1,8 +1,11 @@
-import ANDROID from "@components/homelink/android";
-import IOS from "@components/homelink/ios";
 import type { NextPage } from "next";
+import { useEffect, useRef, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css"; // 기본 Swiper 스타일
+import "swiper/css/navigation"; // 내비게이션 추가 시 필요
+import "swiper/css/pagination"; // 페이지네이션 추가 시 필요
+import { Navigation, Pagination } from "swiper/modules"; // Swiper 모듈
 import Image from "next/image";
-import { useEffect, useState } from "react";
 
 const Home: NextPage = () => {
   const [copied, setCopied] = useState(false);
@@ -37,11 +40,32 @@ const Home: NextPage = () => {
     }
   };
 
-  const [activeDiv, setActiveDiv] = useState<number | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  let startX = 0;
+  let scrollLeft = 0;
 
-  const toggleDiv = (index: number) => {
-    setActiveDiv(activeDiv === index ? null : index);
+  const handleTouchStart = (e: React.TouchEvent) => {
+    startX = e.touches[0].pageX - (containerRef.current?.offsetLeft || 0);
+    scrollLeft = containerRef.current?.scrollLeft || 0;
   };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!containerRef.current) return;
+    const x = e.touches[0].pageX - (containerRef.current.offsetLeft || 0);
+    const walk = (x - startX) * 1.5; // 드래그 속도 조절
+    containerRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  const stageImages = [
+    { url: "/stage/1.png", description: "" },
+    { url: "/stage/2.png", description: "" },
+    { url: "/stage/3.png", description: "" },
+    { url: "/stage/4.png", description: "" },
+    { url: "/stage/5.png", description: "" },
+    { url: "/stage/6.png", description: "" },
+    { url: "/stage/7.png", description: "" },
+    { url: "/stage/8.png", description: "" },
+  ];
 
   return (
     <div className="grid gap-10 py-10">
@@ -113,11 +137,34 @@ const Home: NextPage = () => {
         <div className="grid gap-1">
           <span className="mx-4 flex flex-col gap-2 text-center">
             {video_links.map((video_link, j) => (
-              <a href={video_link[1]} className="border py-2" key={video_link[0]}>
+              <a
+                href={video_link[1]}
+                className="border py-2"
+                key={video_link[0]}
+              >
                 {video_link[0]}
               </a>
             ))}
           </span>
+        </div>
+      </div>
+      <div className="grid gap-4">
+      <h3 className="text-xl mx-10">무대</h3>
+        <div
+          ref={containerRef}
+          className="flex overflow-x-scroll no-scrollbar gap-4"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+        >
+          {stageImages.map((image, index) => (
+            <div key={image.url} className="min-w-[85vw] border mx-4">
+              <img
+                src={image.url}
+                alt={`Slide ${index + 1}`}
+                className="w-full"
+              />
+            </div>
+          ))}
         </div>
       </div>
     </div>
