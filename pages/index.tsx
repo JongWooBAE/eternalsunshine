@@ -184,7 +184,7 @@ const Home: NextPage = () => {
             onTouchMove={handleTouchMove}
           >
             {stageImages2D.map((image, index) => (
-              <div key={image.url} className="min-w-[85vw] border mx-4">
+              <div key={image.url} className="min-w-[300px] w-[85vw] border mx-4">
                 <img
                   src={image.url}
                   alt={`Slide ${index + 1}`}
@@ -201,7 +201,7 @@ const Home: NextPage = () => {
             onTouchMove={handleTouchMove}
           >
             {stageImages3D.map((image, index) => (
-              <div key={image.url} className="min-w-[85vw] border mx-4">
+              <div key={image.url} className="min-w-[300px] w-[85vw] border mx-4">
                 <img
                   src={image.url}
                   alt={`Slide ${index + 1}`}
