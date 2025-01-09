@@ -9,6 +9,7 @@ import Image from "next/image";
 
 const Home: NextPage = () => {
   const [copied, setCopied] = useState(false);
+  const [stageD, setStageD] = useState("2D");
   const video_links = [
     [
       "대본 리딩",
@@ -56,15 +57,36 @@ const Home: NextPage = () => {
     containerRef.current.scrollLeft = scrollLeft - walk;
   };
 
-  const stageImages = [
-    { url: "/stage/1.png", description: "" },
-    { url: "/stage/2.png", description: "" },
-    { url: "/stage/3.png", description: "" },
-    { url: "/stage/4.png", description: "" },
-    { url: "/stage/5.png", description: "" },
-    { url: "/stage/6.png", description: "" },
-    { url: "/stage/7.png", description: "" },
-    { url: "/stage/8.png", description: "" },
+  const stageImages3D = [
+    { url: "/stage/3d/1.png", description: "" },
+    { url: "/stage/3d/2.png", description: "" },
+    { url: "/stage/3d/3.png", description: "" },
+    { url: "/stage/3d/4.png", description: "" },
+    { url: "/stage/3d/5.png", description: "" },
+    { url: "/stage/3d/6.png", description: "" },
+    { url: "/stage/3d/7.png", description: "" },
+    { url: "/stage/3d/8.png", description: "" },
+  ];
+  const stageImages2D = [
+    { url: "/stage/2d/01.jpeg", description: "" },
+    { url: "/stage/2d/02.jpeg", description: "" },
+    { url: "/stage/2d/03.jpeg", description: "" },
+    { url: "/stage/2d/04.jpeg", description: "" },
+    { url: "/stage/2d/05.jpeg", description: "" },
+    { url: "/stage/2d/06.jpeg", description: "" },
+    { url: "/stage/2d/07.jpeg", description: "" },
+    { url: "/stage/2d/08.jpeg", description: "" },
+    { url: "/stage/2d/09.jpeg", description: "" },
+    { url: "/stage/2d/10.jpeg", description: "" },
+    { url: "/stage/2d/11.jpeg", description: "" },
+    { url: "/stage/2d/12.jpeg", description: "" },
+    { url: "/stage/2d/13.jpeg", description: "" },
+    { url: "/stage/2d/14.jpeg", description: "" },
+    { url: "/stage/2d/15.jpeg", description: "" },
+    { url: "/stage/2d/16.jpeg", description: "" },
+    { url: "/stage/2d/17.jpeg", description: "" },
+    { url: "/stage/2d/18.jpeg", description: "" },
+    { url: "/stage/2d/19.jpeg", description: "" },
   ];
 
   return (
@@ -149,23 +171,46 @@ const Home: NextPage = () => {
         </div>
       </div>
       <div className="grid gap-4">
-      <h3 className="text-xl mx-10">무대</h3>
-        <div
-          ref={containerRef}
-          className="flex overflow-x-scroll no-scrollbar gap-4"
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-        >
-          {stageImages.map((image, index) => (
-            <div key={image.url} className="min-w-[85vw] border mx-4">
-              <img
-                src={image.url}
-                alt={`Slide ${index + 1}`}
-                className="w-full"
-              />
-            </div>
-          ))}
+        <h3 className="text-xl mx-10">무대</h3>
+        <div className="ml-10 flex gap-4">
+          <button className="px-5 py-2 border" onClick={()=>setStageD("2D")}>2D</button>
+          <button className="px-5 py-2 border" onClick={()=>setStageD("3D")}>3D</button>
         </div>
+        {stageD == "2D" ? (
+          <div
+            ref={containerRef}
+            className="flex overflow-x-scroll no-scrollbar gap-4"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+          >
+            {stageImages2D.map((image, index) => (
+              <div key={image.url} className="min-w-[85vw] border mx-4">
+                <img
+                  src={image.url}
+                  alt={`Slide ${index + 1}`}
+                  className="w-full"
+                />
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div
+            ref={containerRef}
+            className="flex overflow-x-scroll no-scrollbar gap-4"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+          >
+            {stageImages3D.map((image, index) => (
+              <div key={image.url} className="min-w-[85vw] border mx-4">
+                <img
+                  src={image.url}
+                  alt={`Slide ${index + 1}`}
+                  className="w-full"
+                />
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
