@@ -43,11 +43,6 @@ const Home: NextPage = () => {
     setActiveDiv(activeDiv === index ? null : index);
   };
 
-  const homeLinks = [
-    ["아이폰(사파리)", <IOS />],
-    ["안드로이드(삼성인터넷)", <ANDROID />],
-  ];
-
   return (
     <div className="grid gap-10 py-10">
       <div className="grid gap-4 mx-10">
@@ -124,17 +119,6 @@ const Home: NextPage = () => {
             ))}
           </span>
         </div>
-      </div>
-      <div className="grid mx-10">
-        <h3 className="text-xl pb-4">홈 화면에 바로가기 링크 추가 방법</h3>
-        {homeLinks.map((homeLink, num) => (
-          <div key={num} className="w-[100vw] pb-4">
-            <div className="ml-4" onClick={() => toggleDiv(num)}>
-              {homeLink[0]}
-            </div>
-            {activeDiv === num && <div className="mx-4">{homeLink[1]}</div>}
-          </div>
-        ))}
       </div>
     </div>
   );
