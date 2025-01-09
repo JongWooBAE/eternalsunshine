@@ -112,19 +112,19 @@ const Home: NextPage = () => {
           </a>
         </div>
       </div>
-      <div className="grid gap-4 mx-10">
+      {/* <div className="grid gap-4 mx-10">
         <h3 className="text-xl">연습 영상</h3>
 
         <div className="grid gap-1">
           <span className="mx-4 flex flex-col gap-2 text-center">
             {video_links.map((video_link, j) => (
-              <a href={video_link[1]} className="border py-2" key={video_link[0]}>
+              <a href={video_link[1]} className="border py-2" key={j}>
                 {video_link[0]}
               </a>
             ))}
           </span>
         </div>
-      </div>
+      </div> */}
       {/* <div className="grid mx-10">
         <h3 className="text-xl pb-4">홈 화면에 바로가기 링크 추가 방법</h3>
         {homeLinks.map((homeLink, num) => (
