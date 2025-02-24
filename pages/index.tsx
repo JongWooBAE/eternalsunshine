@@ -126,6 +126,25 @@ const Home: NextPage = () => {
         </div>
       </div> */}
       <div className="grid gap-4 mx-10">
+        <h3 className="text-xl">디스코드</h3>
+        <div className="flex flex-col gap-2 mx-4">
+          <a
+            href="https://discord.com/channels/1340898866496802867/1340898866496802870"
+            className="border py-2 text-center"
+          >
+            디스코드 바로가기
+          </a>
+          <span
+            onClick={() =>
+              (window.location.href = "https://discord.gg/rWFpYgyH")
+            }
+          >
+            초대링크 :{" "}
+            <span className="text-blue-700">https://discord.gg/rWFpYgyH</span>
+          </span>
+        </div>
+      </div>
+      <div className="grid gap-4 mx-10">
         <h3 className="text-xl">연습실</h3>
         <div className="flex flex-col gap-2 mx-4">
           <span>군자역 부근 공간연습실</span>
@@ -173,8 +192,12 @@ const Home: NextPage = () => {
       <div className="grid gap-4">
         <h3 className="text-xl mx-10">무대</h3>
         <div className="ml-10 flex gap-4">
-          <button className="px-5 py-2 border" onClick={()=>setStageD("2D")}>2D</button>
-          <button className="px-5 py-2 border" onClick={()=>setStageD("3D")}>3D</button>
+          <button className="px-5 py-2 border" onClick={() => setStageD("2D")}>
+            2D
+          </button>
+          <button className="px-5 py-2 border" onClick={() => setStageD("3D")}>
+            3D
+          </button>
         </div>
         {stageD == "2D" ? (
           <div
@@ -184,7 +207,10 @@ const Home: NextPage = () => {
             onTouchMove={handleTouchMove}
           >
             {stageImages2D.map((image, index) => (
-              <div key={image.url} className="min-w-[300px] w-[85vw] border mx-4">
+              <div
+                key={image.url}
+                className="min-w-[300px] w-[85vw] border mx-4"
+              >
                 <img
                   src={image.url}
                   alt={`Slide ${index + 1}`}
@@ -201,7 +227,10 @@ const Home: NextPage = () => {
             onTouchMove={handleTouchMove}
           >
             {stageImages3D.map((image, index) => (
-              <div key={image.url} className="min-w-[300px] w-[85vw] border mx-4">
+              <div
+                key={image.url}
+                className="min-w-[300px] w-[85vw] border mx-4"
+              >
                 <img
                   src={image.url}
                   alt={`Slide ${index + 1}`}
