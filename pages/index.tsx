@@ -88,7 +88,7 @@ const Home: NextPage = () => {
     { url: "/stage/2d/18.jpeg", description: "" },
     { url: "/stage/2d/19.jpeg", description: "" },
   ];
-
+  
   return (
     <div className="grid gap-10 py-10">
       <div className="grid gap-4 mx-10">
@@ -102,7 +102,18 @@ const Home: NextPage = () => {
           </a>
         </div>
       </div>
-
+      <div className="grid gap-4 mx-10">
+        <h3 className="text-xl">군자반 캘린더</h3>
+        {/* <iframe src="https://naver.me/5jJyeJas" width="800" height="600"></iframe> */}
+        <div className="flex flex-col gap-2 text-center mx-4">
+          <a
+            href="https://naver.me/5jJyeJas"
+            className="border py-2"
+          >
+            들어가기
+          </a>
+        </div>
+      </div>
       {/* <div className="grid gap-4 mx-10">
         <h3 className="text-xl">사진 드라이브</h3>
         <div className="flex flex-col gap-2 text-center mx-4">
@@ -139,7 +150,7 @@ const Home: NextPage = () => {
               (window.location.href = "https://discord.gg/rWFpYgyH")
             }
           >
-            초대링크 :{" "}
+            초대링크 :
             <span className="text-blue-700">https://discord.gg/rWFpYgyH</span>
           </span>
         </div>
