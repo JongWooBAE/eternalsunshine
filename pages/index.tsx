@@ -91,11 +91,22 @@ const Home: NextPage = () => {
   
   return (
     <div className="grid gap-10 py-10">
+    <div className="grid gap-4 mx-10">
+      <h3 className="text-xl">스케쥴 구글 스프레드시트</h3>
+      <div className="flex flex-col gap-2 text-center mx-4">
+        <a
+          href="https://docs.google.com/spreadsheets/d/1wNkUul0e7yvD1PfCDFpF9WCxeMcaXjjnf1nDv9o1oLA/edit?usp=drivesdk"
+          className="border py-2"
+        >
+          들어가기
+        </a>
+      </div>
+    </div>
       <div className="grid gap-4 mx-10">
-        <h3 className="text-xl">스케쥴 구글 스프레드시트</h3>
+        <h3 className="text-xl">군자 의상 소품 스프레드시트</h3>
         <div className="flex flex-col gap-2 text-center mx-4">
           <a
-            href="https://docs.google.com/spreadsheets/d/1wNkUul0e7yvD1PfCDFpF9WCxeMcaXjjnf1nDv9o1oLA/edit?usp=drivesdk"
+            href="https://docs.google.com/spreadsheets/d/1jvpHNzFJpKCg8kbA-PlbNgbLfSxzJGdmevo0HbMKZTo/edit?gid=963415964#gid=963415964"
             className="border py-2"
           >
             들어가기
